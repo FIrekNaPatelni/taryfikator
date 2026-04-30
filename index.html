@@ -109,7 +109,7 @@
 
   // load json
   async function loadData() {
-    const res = await fetch('data.json');
+    const res = await fetch('/data.json');
     allData = await res.json();
     buildSidebar();
     buildMain();

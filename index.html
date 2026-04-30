@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taryfikator LAPD</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="header-logo" style="display: flex; align-items: center; gap: 12px;">
+    <img src="assets/logo.webp" alt="Logo" style="width:40px;height:40px;">
+    <div>
+      <div style="font-weight:bold; font-size:1.0em; letter-spacing:1px;">TARYFIKATOR</div>
+      <span style="font-size:0.5em; color:#888;">LAPD - Rampart Division</span>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Szukaj" autocomplete="off" />
+  </div>
+
+  <div class="header-right">
+    <span class="badge-count" id="badgeCount">0 zaznaczonych</span>
+    <button class="btn-summary" id="btnSummary">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+        <rect x="9" y="3" width="6" height="4" rx="1"/>
+      </svg>
+      Podsumowanie
+    </button>
+  </div>
+</header>
+
+<!-- Jebac oszoka :) -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-label">Sekcje</div>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="mainContent">
+    <div class="no-results" id="noResults">Brak wyników dla podanej frazy.</div>
+  </main>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title">Podsumowanie zarzutów</div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+
+    <div class="summary-totals">
+      <div class="total-box">
+        <div class="total-label">Łączna kara (max)</div>
+        <div class="total-value money" id="totalMoney">$0</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Łączna kara (min)</div>
+        <div class="total-value money" id="totalMoneyMin">$0</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Wyrok (max)</div>
+        <div class="total-value prison" id="totalPrisonMax">—</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Wyrok (min)</div>
+        <div class="total-value prison" id="totalPrisonMin">—</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Śr. kara</div>
+        <div class="total-value money" id="avgMoney">$0</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Śr. wyrok</div>
+        <div class="total-value prison" id="avgPrison">—</div>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Zarzutów</div>
+        <div class="total-value count" id="totalCount">0</div>
+      </div>
+    </div>
+
+    <div class="summary-list" id="summaryList">
+      <div class="empty-summary">Brak zaznaczonych paragrafów.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // global ints
+  let allData = [];
+  let selected = new Set();
+
+  // icon
+  const CHECK_SVG = `<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,6 4.5,9 10.5,3"/></svg>`;
+
+  // load json
+  async function loadData() {
+    const res = await fetch('data.json');
+    allData = await res.json();
+    buildSidebar();
+    buildMain();
+  }
+
+  // sidebar
+  function buildSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.innerHTML = '<div class="sidebar-label">Sekcje</div>';
+    allData.forEach((sec, i) => {
+      const a = document.createElement('a');
+      a.className = 'nav-item';
+      a.href = `#section-${i}`;
+      a.dataset.section = i;
+      a.innerHTML = `<span class="nav-sel"></span>${sec.section}<span class="nav-count">${sec.entries.length}</span>`;
+      sidebar.appendChild(a);
+    });
+  }
+
+  // cards
+  function buildMain() {
+    const main = document.getElementById('mainContent');
+    [...main.querySelectorAll('.section-block')].forEach(el => el.remove());
+
+    allData.forEach((sec, si) => {
+      const block = document.createElement('div');
+      block.className = 'section-block';
+      block.id = `section-${si}`;
+
+      block.innerHTML = `
+        <div class="section-header">
+          <div class="section-title">${sec.section}</div>
+          <div class="section-subtitle">${sec.entries.length} paragrafów</div>
+        </div>
+      `;
+
+      sec.entries.forEach((entry, ei) => {
+        const id = `${si}-${ei}`;
+        const card = buildCard(entry, id);
+        block.appendChild(card);
+      });
+
+      main.appendChild(block);
+    });
+
+    setupIntersection();
+  }
+
+  // build card
+  function buildCard(entry, id) {
+    const card = document.createElement('div');
+    card.className = 'entry-card';
+    card.dataset.id = id;
+    if (selected.has(id)) card.classList.add('selected');
+
+    const wyrok = entry.wyrok_min === 'brak'
+      ? '—'
+      : `${entry.wyrok_min} – ${entry.wyrok_max}`;
+
+    const kara = entry.kara_max_usd === 0
+      ? '—'
+      : `$${entry.kara_min_usd.toLocaleString()} – $${entry.kara_max_usd.toLocaleString()}`;
+
+    let inneHtml = '';
+    Object.entries(entry.inne || {}).forEach(([k, v]) => {
+      const label = k.replace(/_/g, ' ');
+      inneHtml += `<span class="inne-tag">${label}: ${v}</span>`;
+    });
+
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-check">${CHECK_SVG}</div>
+        <div class="card-code">${entry.title}</div>
+        <div class="card-body">
+          <div class="card-desc">${entry.desc}</div>
+          <div class="card-meta">
+            <span class="meta-pill kara">💰 ${kara}</span>
+            <span class="meta-pill wyrok">⏱ ${wyrok}</span>
+          </div>
+          ${inneHtml ? `<div class="card-inne">${inneHtml}</div>` : ''}
+        </div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => toggleCard(card, id, entry));
+    return card;
+  }
+
+  // toggle selected
+  function toggleCard(card, id, entry) {
+    if (selected.has(id)) {
+      selected.delete(id);
+      card.classList.remove('selected');
+    } else {
+      selected.add(id);
+      card.classList.add('selected');
+    }
+    updateUI();
+  }
+
+  // update badge button and sidebar dots
+  function updateUI() {
+    const count = selected.size;
+    const badge = document.getElementById('badgeCount');
+    const btn = document.getElementById('btnSummary');
+    badge.textContent = `${count} zaznaczonych`;
+    badge.classList.toggle('visible', count > 0);
+    btn.classList.toggle('visible', count > 0);
+    updateSidebarDots();
+  }
+
+  // dots in sidebar
+  function updateSidebarDots() {
+    document.querySelectorAll('.nav-item').forEach(nav => {
+      const si = nav.dataset.section;
+      const hasAny = [...selected].some(id => id.startsWith(`${si}-`));
+      nav.classList.toggle('has-selected', hasAny);
+    });
+  }
+
+  // search
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    let totalVisible = 0;
+
+    document.querySelectorAll('.section-block').forEach(block => {
+      let blockVisible = 0;
+      block.querySelectorAll('.entry-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) blockVisible++;
+      });
+      block.style.display = blockVisible === 0 ? 'none' : '';
+      totalVisible += blockVisible;
+    });
+
+    document.getElementById('noResults').style.display = totalVisible === 0 ? 'block' : 'none';
+  });
+
+  // intersection observer
+  function setupIntersection() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          document.querySelectorAll('.nav-item').forEach(n => {
+            n.classList.toggle('active', `section-${n.dataset.section}` === id);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    document.querySelectorAll('.section-block').forEach(b => obs.observe(b));
+  }
+
+  // modal
+  document.getElementById('btnSummary').addEventListener('click', openModal);
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  });
+
+  function openModal() {
+    renderSummary();
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // render summary
+  function renderSummary() {
+    const list = document.getElementById('summaryList');
+    list.innerHTML = '';
+
+    if (selected.size === 0) {
+      list.innerHTML = '<div class="empty-summary">Brak zaznaczonych paragrafów.</div>';
+      document.getElementById('totalMoney').textContent = '$0';
+      document.getElementById('totalMoneyMin').textContent = '$0';
+      document.getElementById('totalPrisonMax').textContent = '—';
+      document.getElementById('totalPrisonMin').textContent = '—';
+      document.getElementById('avgMoney').textContent = '$0';
+      document.getElementById('avgPrison').textContent = '—';
+      document.getElementById('totalCount').textContent = '0';
+      return;
+    }
+
+    let totalMoneyMax = 0;
+    let totalMoneyMin = 0;
+    let prisonMonthsMax = 0;
+    let prisonMonthsMin = 0;
+    let hasPrisonMax = false;
+    let hasPrisonMin = false;
+    let prisonCount = 0;
+    let moneyCount = 0;
+    const rows = [];
+
+    selected.forEach(id => {
+      const [si, ei] = id.split('-').map(Number);
+      const entry = allData[si].entries[ei];
+      totalMoneyMax += entry.kara_max_usd;
+      totalMoneyMin += entry.kara_min_usd;
+      if (entry.kara_max_usd > 0 || entry.kara_min_usd > 0) moneyCount++;
+
+      // month max
+      const monthsMax = parseToMonths(entry.wyrok_max);
+      if (monthsMax > 0) { prisonMonthsMax += monthsMax; hasPrisonMax = true; prisonCount++; }
+
+      // month min
+      const monthsMin = parseToMonths(entry.wyrok_min);
+      if (monthsMin > 0) { prisonMonthsMin += monthsMin; hasPrisonMin = true; }
+
+      rows.push({ id, entry });
+    });
+
+    rows.sort((a, b) => b.entry.kara_max_usd - a.entry.kara_max_usd);
+
+    rows.forEach(({ id, entry }) => {
+      const kara = entry.kara_max_usd > 0 ? `$${entry.kara_max_usd.toLocaleString()}` : '—';
+      const row = document.createElement('div');
+      row.className = 'summary-row';
+      row.innerHTML = `
+        <div class="summary-code">${entry.title}</div>
+        <div class="summary-desc">${entry.desc}</div>
+        <div class="summary-kara">${kara}</div>
+        <button class="btn-remove-row" data-id="${id}" title="Usuń">✕</button>
+      `;
+      row.querySelector('.btn-remove-row').addEventListener('click', (e) => {
+        e.stopPropagation();
+        removeEntry(id);
+      });
+      list.appendChild(row);
+    });
+
+    // total
+    document.getElementById('totalMoney').textContent = `$${totalMoneyMax.toLocaleString()}`;
+    document.getElementById('totalMoneyMin').textContent = `$${totalMoneyMin.toLocaleString()}`;
+    document.getElementById('totalPrisonMax').textContent = hasPrisonMax ? formatMonths(prisonMonthsMax) : '—';
+    document.getElementById('totalPrisonMin').textContent = hasPrisonMin ? formatMonths(prisonMonthsMin) : '—';
+    document.getElementById('totalCount').textContent = selected.size;
+
+    // avg
+    document.getElementById('avgMoney').textContent = moneyCount > 0 ? `$${Math.round(totalMoneyMax / moneyCount).toLocaleString()}` : '—';
+    document.getElementById('avgPrison').textContent = prisonCount > 0 ? formatMonths(Math.round(prisonMonthsMax / prisonCount)) : '—';
+  }
+
+  // clear from summary
+  function removeEntry(id) {
+    selected.delete(id);
+    document.querySelectorAll(`.entry-card[data-id="${id}"]`).forEach(c => c.classList.remove('selected'));
+    updateUI();
+    if (selected.size === 0) closeModal();
+    else renderSummary();
+  }
+
+  // parse
+  function parseToMonths(str) {
+    if (!str || str === 'brak' || str === '—') return 0;
+    str = str.toLowerCase();
+    if (str.includes('dożywocie') || str.includes('dożywot')) return 9999;
+    const mMatch = str.match(/(\d+)\s*mies/);
+    if (mMatch) return parseInt(mMatch[1]);
+    const yMatch = str.match(/(\d+)\s*lat/);
+    if (yMatch) return parseInt(yMatch[1]) * 12;
+    const dMatch = str.match(/(\d+)\s*dni/);
+    if (dMatch) return Math.ceil(parseInt(dMatch[1]) / 30);
+    return 0;
+  }
+
+  function formatMonths(m) {
+    if (m >= 9999) return 'dożywocie';
+    if (m >= 12) {
+      const y = Math.floor(m / 12);
+      const rest = m % 12;
+      return rest > 0 ? `${y} lat ${rest} mies.` : `${y} lat`;
+    }
+    return `${m} mies.`;
+  }
+
+  loadData();
+</script>
+<footer style="width:100%;text-align:center;padding:18px 0 10px 0;color:#888;font-size:1em;letter-spacing:0.5px;">
+  © 2026 <a style="color:#888;text-decoration:underline;" href="https://github.com/FIrekNaPatelni" target="_blank">Firek</a>❤️. Narzędzie stworzone dla rozgrywki roleplay. Nie jest oficjalną stroną podlegającą pod California lub LAPD.
+</footer>
+</body>
+</html>

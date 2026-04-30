@@ -1,0 +1,695 @@
+[
+  {
+    "section": "Pojazdy",
+    "entries": [
+      {
+        "title": "CVC 22350",
+        "desc": "Jazda z prędkością nieadekwatną do warunków drogowych",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 35,
+        "kara_max_usd": 500,
+        "inne": {
+          "Uwaga": "Kara zależy od przekroczenia prędkości",
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+      {
+        "title": "CVC 22450",
+        "desc": "Nie zatrzymanie się przy znaku STOP",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 200,
+        "kara_max_usd": 300,
+        "inne": {
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+      {
+        "title": "CVC 23103",
+        "desc": "Brawurowa lub nieostrożna jazda (może stwarzać zagrożenie)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "365 dni",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "punkty_karne": "1 punkt karny",
+          "mozliwa_probation": "tak"
+        }
+      },
+      {
+        "title": "CVC 23152",
+        "desc": "Prowadzenie pojazdu pod wpływem alkoholu (BAC ≥0,08% lub narkotyków)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "180 dni",
+        "kara_min_usd": 390,
+        "kara_max_usd": 1000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "6-10 miesięcy (pierwszy raz)",
+          "kursy": "TAK (EDU program)",
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+      {
+        "title": "CVC 23153 misdemeanor",
+        "desc": "Jazda pod wpływem alkoholu/narkotyków skutkująca obrażeniami",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "360 dni",
+        "kara_min_usd": 500,
+        "kara_max_usd": 5000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "3 lata",
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+            {
+        "title": "CVC 23153 FELONY",
+        "desc": "Jazda pod wpływem alkoholu/narkotyków skutkująca obrażeniami",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "4 lata",
+        "kara_min_usd": 500,
+        "kara_max_usd": 5000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "3 lata",
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+      {
+        "title": "CVC 22454(b)",
+        "desc": "Nieudzielenie pierwszeństwa pieszemu na przejściu dla pieszych",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 200,
+        "kara_max_usd": 300,
+        "inne": {
+          "punkty_karne": "1 punkt karny"
+        }
+      },
+      {
+        "title": "CVC 12500",
+        "desc": "Prowadzenie pojazdu bez ważnego prawa jazdy",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "5 dni",
+        "kara_min_usd": 300,
+        "kara_max_usd": 500,
+        "inne": {
+          "zatrzymanie_pojazdu": "możliwe",
+          "zawieszenie_prawa_jazdy": "0-5 dni"
+        }
+      },
+      {
+        "title": "CVC 14601",
+        "desc": "Prowadzenie pomimo zawieszenia prawa jazdy",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "180 dni",
+        "kara_min_usd": 300,
+        "kara_max_usd": 1000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "wydłużone",
+          "zatrzymanie_pojazdu": "możliwe"
+        }
+      },
+      {
+        "title": "CVC 20002",
+        "desc": "Ucieczka z miejsca wypadku powodującego uszkodzenie mienia",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "90 dni",
+        "kara_min_usd": 100,
+        "kara_max_usd": 1000,
+        "inne": {
+          "punkty_karne": "2 punkty karne"
+        }
+      },
+      {
+        "title": "CVC 20001",
+        "desc": "Ucieczka z miejsca wypadku skutkująca obrażeniami lub śmiercią (hit and run)",
+        "wyrok_min": "16 miesięcy",
+        "wyrok_max": "4 lata",
+        "kara_min_usd": 1000,
+        "kara_max_usd": 10000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "1-2 lata",
+          "ofiary": "możliwy civil claim"
+        }
+      },
+      {
+        "title": "CVC 23109",
+        "desc": "Nielegalny wyścig uliczny lub jazda > 100 mph",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "30 dni",
+        "kara_min_usd": 350,
+        "kara_max_usd": 1000,
+        "inne": {
+          "zawieszenie_prawa_jazdy": "6 miesięcy",
+          "punkty_karne": "2 punkty karne"
+        }
+      },
+      {
+        "title": "CVC 2800.1",
+        "desc": "Nie zatrzymanie się na żądanie officera pokoju (ucieczka – wykroczenie)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "180 dni",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "probation": "możliwa",
+          "punkty_karne": "2 punkty karne"
+        }
+      },
+      {
+        "title": "CVC 2800.2",
+        "desc": "Ucieczka pojazdem przed officerem pokoju z rażąco niebezpieczną jazdą",
+        "wyrok_min": "12 miesięcy",
+        "wyrok_max": "36 miesięcy",
+        "kara_min_usd": 500,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "CVC 2800.3",
+        "desc": "Ucieczka przed officerem pokoju powodująca obrażenia lub śmierć",
+        "wyrok_min": "32 miesiące",
+        "wyrok_max": "72 miesiące",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "CVC 21453",
+        "desc": "Nieprzestrzeganie czerwonego światła",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 100,
+        "kara_max_usd": 500,
+        "inne": {}
+      },
+      {
+        "title": "CVC 21650",
+        "desc": "Jazda pod prąd / niewłaściwy pas ruchu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 21800",
+        "desc": "Nieustąpienie pierwszeństwa na skrzyżowaniu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 21954",
+        "desc": "Przechodzenie przez jezdnię w niedozwolonym miejscu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 21955",
+        "desc": "Jazda po chodniku",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 22348",
+        "desc": "Przekroczenie prędkości",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 35,
+        "kara_max_usd": 500,
+        "inne": {}
+      },
+      {
+        "title": "CVC 22500",
+        "desc": "Nieprawidłowe parkowanie",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 24002",
+        "desc": "Nieprawidłowy stan techniczny pojazdu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 24252",
+        "desc": "Wymagane oświetlenie pojazdu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      },
+      {
+        "title": "CVC 24400a",
+        "desc": "Wymóg posiadania świateł przednich pojazdu",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 25,
+        "kara_max_usd": 250,
+        "inne": {}
+      }
+    ]
+  },
+  {
+    "section": "Bro\u0144",
+    "entries": [
+      {
+        "title": "PC 25400",
+        "desc": "Ukryte noszenie broni palnej bez pozwolenia",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "konfiskata": "tak",
+          "zakaz_posiadania": "tak"
+        }
+      },
+      {
+        "title": "PC 25850",
+        "desc": "Nielegalne noszenie załadowanej broni palnej przy sobie",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "konfiskata": "tak",
+          "zakaz_posiadania": "tak"
+        }
+      },
+      {
+        "title": "PC 417(a)(1)",
+        "desc": "Wymierzenie broni w innego (bez oddania strzału)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "uwagi": "niezale\u017cnie od faktu czy bro\u0144 jest realna"
+        }
+      },
+      {
+        "title": "PC 246.3",
+        "desc": "Oddanie strzału z broni w kierunku budynku/pojazdu mieszkalnego",
+        "wyrok_min": "2 lata",
+        "wyrok_max": "4 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "konfiskata": "tak",
+          "mo\u017cliwa_proba\u017cja": "tak"
+        }
+      },
+      {
+        "title": "PC 29800",
+        "desc": "Posiadanie broni palnej przez osob\u0119 skazan\u0105 za przest\u0119pstwo",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "konfiskata": "tak",
+          "zakaz_posiadania": "do\u017cywotni"
+        }
+      },
+      {
+        "title": "PC 12020",
+        "desc": "Posiadanie zakazanych przedmiot\u00f3w (no\u017ce, gwiazdki ninja itp.)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "konfiskata": "tak"
+        }
+      }
+    ]
+  },
+  {
+    "section": "Przemoc",
+    "entries": [
+      {
+        "title": "PC 187",
+        "desc": "Zab\u00f3jstwo (umy\u015blne z\u0142o\u017cone lub w afekcie)",
+        "wyrok_min": "15 lat",
+        "wyrok_max": "do\u017cywocie",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "uwagi": "kara \u017cycia lub do\u017cywocia (czasem kara \u015bmierci)"
+        }
+      },
+      {
+        "title": "PC 192(a)",
+        "desc": "Nieumy\u015blne zab\u00f3jstwo w afekcie",
+        "wyrok_min": "3 lata",
+        "wyrok_max": "11 lat",
+        "kara_min_usd": 0,
+        "kara_max_usd": 20000,
+        "inne": {}
+      },
+      {
+        "title": "PC 245(a)(1)",
+        "desc": "Atak z u\u017cyciem niebezpiecznej broni lub si\u0142y",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "4 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "PC 245(a)(2)",
+        "desc": "Atak z u\u017cyciem broni palnej",
+        "wyrok_min": "3 lata",
+        "wyrok_max": "6 lat",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "PC 273.5",
+        "desc": "Powa\u017cne spowodowanie obra\u017ce\u0144 w rodzinie",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 6000,
+        "inne": {
+          "kilka": "ograniczenia kontakt\u00f3w, doz\u00f3r s\u0105dowy"
+        }
+      },
+      {
+        "title": "PC 242",
+        "desc": "Napa\u015b\u0107 fizyczna na inn\u0105 osob\u0119",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 2000,
+        "inne": {}
+      },
+      {
+        "title": "PC 241(a)",
+        "desc": "Nara\u017canie na powa\u017cne obra\u017cenia officera",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 5000,
+        "inne": {}
+      },
+      {
+        "title": "CPC 664/187",
+        "desc": "Usiłowanie zabójstwa",
+        "wyrok_min": "60 miesięcy",
+        "wyrok_max": "108 miesięcy",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "CPC 241c",
+        "desc": "Napaść na oficera pokoju",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "24 miesiące",
+        "kara_min_usd": 0,
+        "kara_max_usd": 5000,
+        "inne": {}
+      }
+    ]
+  },
+      {
+        "section": "Mienie",
+        "entries": [
+      {
+        "title": "PC 459A",
+        "desc": "Residential Burglary (włamanie do domu)",
+        "wyrok_min": "2 lata",
+        "wyrok_max": "6 lat",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "probation": "rzadko",
+          "restitucja": "tak"
+        }
+      },
+      {
+        "title": "PC 459B",
+        "desc": "Commercial Burglary (włamanie do budynku/firmy)",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "probation": "możliwa",
+          "restitucja": "tak"
+        }
+      },
+      {
+        "title": "PC 484",
+        "desc": "Kradzie\u017c mienia o niskiej warto\u015bci (<950 USD)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 2000,
+        "inne": {
+          "punkty_karne": "2 punkty karne (je\u015bli licencja)"
+        }
+      },
+      {
+        "title": "PC 487",
+        "desc": "Kradzie\u017c mienia o warto\u015bci \u017cwy\u017cszej (≥950 USD)",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "restitucja": "tak"
+        }
+      },
+      {
+        "title": "PC 466",
+        "desc": "Posiadanie narz\u0119dzi do w\u0142amania",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "PC 503",
+        "desc": "Przyw\u0142aszczenie powierzonego mienia (przest\u0119pstwo gospodarcze)",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "restitucja": "tak"
+        }
+      }
+    ]
+  },
+  {
+    "section": "Narkotyki",
+    "entries": [
+      {
+        "title": "HSC 11350",
+        "desc": "Posiadanie niedozwolonych narkotyk\u00f3w (np. heroina, kokaina)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "probation": "możliwa",
+          "program_odwykowy": "tak"
+        }
+      },
+      {
+        "title": "CHSC 11351",
+        "desc": "Posiadanie narkotyków z zamiarem sprzedaży",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "16 miesięcy",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "CHSC 11352",
+        "desc": "Sprzedaż, dystrybucja lub transport narkotyków",
+        "wyrok_min": "16 miesięcy",
+        "wyrok_max": "36 miesięcy",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "HSC 11377",
+        "desc": "Posiadanie metamfetaminy lub silnych stymulant\u00f3w (przest\u0119pstwo)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "probation": "często"
+        }
+      },
+      {
+        "title": "HSC 11378",
+        "desc": "Posiadanie narkotyk\u00f3w w celu sprzeda\u017cy",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 20000,
+        "inne": {
+          "probation": "możliwa"
+        }
+      },
+      {
+        "title": "HSC 11550",
+        "desc": "Prowadzenie po u\u017cyciu narkotyk\u00f3w lub lek\u00f3w odurzaj\u0105cych",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "program_odwykowy": "tak"
+        }
+      },
+      {
+        "title": "HSC 11360",
+        "desc": "Przew\u00f3z du\u017cych ilo\u015bci konopi (wymagana licencja)",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "4 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {
+          "konfiskata": "tak"
+        }
+      }
+    ]
+  },
+  {
+    "section": "Porz\u0105dek publiczny",
+    "entries": [
+      {
+        "title": "PC 415",
+        "desc": "Zak\u0142\u00f3canie porz\u0105dku publicznego (krzyki, bójki)",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 200,
+        "kara_max_usd": 300,
+        "inne": {}
+      },
+      {
+        "title": "PC 647(f)",
+        "desc": "Pija\u0144stwo w miejscu publicznym",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "PC 647(b)",
+        "desc": "Oferta czyn\u00f3w seksualnych na z\u0142o\u015b\u0107 obyczaj\u00f3w (prostytucja)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "PC 647(d)",
+        "desc": "Str\u0119czycielstwo (czerpanie korzy\u015bci z prostytucji)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "PC 653f(a)",
+        "desc": "Znie\u0142o\u017cenie seksualne nieletniego przez internet",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 20000,
+        "inne": {}
+      },
+      {
+        "title": "PC 594",
+        "desc": "Chuliga\u0144stwo (z\u0142amanie porz\u0105dku i dewastacja)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {
+          "restitucja": "tak"
+        }
+      },
+      {
+        "title": "PC 602",
+        "desc": "Naruszenie miru (wej\u015bcie na cudz\u0105 posesj\u0119 bez pozwolenia)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "6 mies.",
+        "kara_min_usd": 0,
+        "kara_max_usd": 250,
+        "inne": {}
+      }
+    ]
+  },
+  {
+    "section": "Inne",
+    "entries": [
+      {
+        "title": "PC 69",
+        "desc": "Przemoc lub groźba wobec officera",
+        "wyrok_min": "16 mies.",
+        "wyrok_max": "3 lata",
+        "kara_min_usd": 0,
+        "kara_max_usd": 10000,
+        "inne": {}
+      },
+      {
+        "title": "PC 148(a)(1)",
+        "desc": "Utrudnianie czynno\u015bci s\u0142u\u017cb (odmawianie zatrzymania si\u0119)",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      },
+      {
+        "title": "PC 148.9(a)",
+        "desc": "Podawanie fa\u0142szywych danych",
+        "wyrok_min": "brak",
+        "wyrok_max": "brak",
+        "kara_min_usd": 250,
+        "kara_max_usd": 500,
+        "inne": {}
+      },
+      {
+        "title": "PC 836.6",
+        "desc": "Niepojawienie si\u0119 w s\u0105dzie po zatrzymaniu",
+        "wyrok_min": "0 dni",
+        "wyrok_max": "1 rok",
+        "kara_min_usd": 0,
+        "kara_max_usd": 1000,
+        "inne": {}
+      }
+    ]
+  }
+]

@@ -51,7 +51,7 @@
         }
       },
       {
-        "title": "CVC 23153 misdemeanor",
+        "title": "CVC 23153 <br /> MISDEMEANOR",
         "desc": "Jazda pod wpływem alkoholu/narkotyków skutkująca obrażeniami",
         "wyrok_min": "0 dni",
         "wyrok_max": "360 dni",
@@ -63,7 +63,7 @@
         }
       },
             {
-        "title": "CVC 23153 FELONY",
+        "title": "CVC 23153 <br /> FELONY",
         "desc": "Jazda pod wpływem alkoholu/narkotyków skutkująca obrażeniami",
         "wyrok_min": "0 dni",
         "wyrok_max": "4 lata",
